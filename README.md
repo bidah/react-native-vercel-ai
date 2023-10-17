@@ -54,8 +54,6 @@ const { messages, input, handleInputChange, handleSubmit, data, isLoading } =
     <Button onPress={handleSubmit} title="Send" />
   </View>
 </View>;
-
-const result = await multiply(3, 7);
 ```
 
 ### 2. On your API endpoint
