@@ -13,14 +13,11 @@ const Completion = () => {
     stop,
     isLoading,
   } = useCompletion({
-    api: 'http://openai-43.ngrok.io/api/completion',
+    api: 'http://localhost:3001/api/chat',
   });
 
   return (
-    <View
-      className="flex flex-col w-full max-w-md py-24 mx-auto stretch"
-      style={{ margin: 10 }}
-    >
+    <View style={{ margin: 10 }}>
       <View style={{ width: '100%', flexDirection: 'row' }}>
         <TextInput
           style={{
@@ -32,7 +29,6 @@ const Completion = () => {
             borderRadius: 5,
             marginRight: 3,
           }}
-          className="fixed bottom-0 w-full max-w-md p-2 mb-8 border border-black-300 rounded shadow-xl"
           value={input}
           placeholder="Say something..."
           onChangeText={(e) => {

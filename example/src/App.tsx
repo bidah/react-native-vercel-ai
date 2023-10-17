@@ -8,12 +8,13 @@ import {
   View,
 } from 'react-native';
 import Chat from './Chat';
+import Completion from './Completion';
 // import Completion from './Completion';
 export default function App() {
   return (
     <View style={styles.container}>
       <Chat />
-      {/* <Completion /> */}
+      <Completion />
     </View>
   );
 }

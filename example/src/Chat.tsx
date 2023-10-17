@@ -12,18 +12,14 @@ import { useChat } from 'react-native-vercel-ai';
 const Chat = () => {
   const { messages, input, handleInputChange, handleSubmit, data, isLoading } =
     useChat({
-      api: 'http://openai-43.ngrok.io/api/chat',
+      api: 'http://localhost:3001/api/chat',
     });
   return (
-    <View
-      className="flex flex-col w-full max-w-md py-24 mx-auto stretch"
-      style={{ margin: 10 }}
-    >
+    <View style={{ margin: 10 }}>
       {messages.length > 0
         ? messages.map((m) => (
             <Text
               key={m.id}
-              className="whitespace-pre-wrap"
               style={{
                 borderWidth: 1,
                 borderColor: 'black',
@@ -57,7 +53,6 @@ const Chat = () => {
             borderRadius: 5,
             marginRight: 3,
           }}
-          className="fixed bottom-0 w-full max-w-md p-2 mb-8 border border-black-300 rounded shadow-xl"
           value={input}
           placeholder="Say something..."
           onChangeText={(e) => {
