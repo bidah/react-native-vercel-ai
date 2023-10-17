@@ -16,10 +16,6 @@ const Completion = () => {
     api: 'http://openai-43.ngrok.io/api/completion',
   });
 
-  useEffect(() => {
-    console.log('completion', completion);
-  }, [completion]);
-
   return (
     <View
       className="flex flex-col w-full max-w-md py-24 mx-auto stretch"
