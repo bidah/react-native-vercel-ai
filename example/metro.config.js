@@ -25,6 +25,7 @@ const config = {
   // So we block them at the root, and alias them to the versions in example's node_modules
   resolver: {
     ...defaultConfig.resolver,
+    unstable_enablePackageExports: true,
 
     blacklistRE: exclusionList(
       modules.map(

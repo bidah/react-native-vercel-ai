@@ -74,9 +74,10 @@
     "@types/react": "17.0.21"
   },
   "peerDependencies": {
+    "ai": "*",
     "react": "*",
     "react-native": "*",
-    "ai": "*"
+    "swr": "*"
   },
   "workspaces": [
     "example"
@@ -157,5 +158,8 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "nanoid": "^5.0.2"
   }
 }
