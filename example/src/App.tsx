@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  Platform,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import { View } from 'react-native';
 import Chat from './Chat';
 import Completion from './Completion';
 // import Completion from './Completion';

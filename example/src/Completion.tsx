@@ -1,7 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Platform } from 'react-native';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, Text, TextInput, View } from 'react-native';
 import { useCompletion } from 'react-native-vercel-ai';
 
 const Completion = () => {
@@ -13,7 +12,7 @@ const Completion = () => {
     stop,
     isLoading,
   } = useCompletion({
-    api: 'http://localhost:3001/api/chat',
+    api: 'http://localhost:3001/api/completion',
   });
 
   return (

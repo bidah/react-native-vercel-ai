@@ -1,16 +1,9 @@
 import React from 'react';
-import {
-  Platform,
-  Button,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
+import { Platform, Button, Text, TextInput, View } from 'react-native';
 import { useChat } from 'react-native-vercel-ai';
 
 const Chat = () => {
-  const { messages, input, handleInputChange, handleSubmit, data, isLoading } =
+  const { messages, input, handleInputChange, handleSubmit, isLoading } =
     useChat({
       api: 'http://localhost:3001/api/chat',
     });
