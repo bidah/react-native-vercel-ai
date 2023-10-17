@@ -14816,7 +14816,6 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.0
     "@expo/webpack-config": ^18.0.1
-    ai: ^2.2.15
     babel-loader: ^8.1.0
     babel-plugin-module-resolver: ^5.0.0
     expo: ~49.0.13
@@ -14840,6 +14839,7 @@ __metadata:
     "@types/jest": ^28.1.2
     "@types/react": ~17.0.21
     "@types/react-native": 0.70.0
+    ai: ^2.2.15
     commitlint: ^17.0.2
     del-cli: ^5.0.0
     eslint: ^8.4.1
@@ -14854,7 +14854,6 @@ __metadata:
     release-it: ^15.0.0
     typescript: ^5.0.2
   peerDependencies:
-    ai: "*"
     react: "*"
     react-native: "*"
     swr: "*"

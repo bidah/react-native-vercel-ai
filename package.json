@@ -32,7 +32,8 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "clean:node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
   },
   "keywords": [
     "react-native",
@@ -74,7 +75,6 @@
     "@types/react": "17.0.21"
   },
   "peerDependencies": {
-    "ai": "*",
     "react": "*",
     "react-native": "*",
     "swr": "*"
@@ -160,6 +160,7 @@
     ]
   },
   "dependencies": {
+    "ai": "^2.2.15",
     "nanoid": "^5.0.2"
   }
 }
