@@ -2,7 +2,9 @@
 
 run vercel AI package on react native, expo, web and universal apps.
 
-Currently React Native fetch API does not support streaming which is used as a default on Vercel AI. This package enables you to still use AI library on React Native. On mobile you get back responses without streaming with the same API of `useChat` and `useCompletion` and on web it will fallback to `ai/react`
+Currently React Native fetch API does not support streaming which is used as a default on Vercel AI. This package enables you to use AI library on React Native but the best usage is when used on Expo universal native apps.
+
+On mobile you get back responses without streaming with the same API of `useChat` and `useCompletion` and on web it will fallback to `ai/react`
 
 ## Installation
 
