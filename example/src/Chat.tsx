@@ -10,7 +10,7 @@ const Chat = () => {
   return (
     <View style={{ margin: 10 }}>
       {messages.length > 0
-        ? messages.map((m) => (
+        ? messages.map((m: any) => (
             <Text
               key={m.id}
               style={{

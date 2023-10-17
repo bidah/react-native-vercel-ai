@@ -3900,14 +3900,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.21":
-  version: 17.0.21
-  resolution: "@types/react@npm:17.0.21"
+"@types/react@npm:*":
+  version: 18.2.28
+  resolution: "@types/react@npm:18.2.28"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: a590bd2e50e4ec0b1957388e198cf248bac3051e525e036901dea10f7d12203bf1c58350aa899e66494cbf8a60ee56402522273866c29748217f72552bb27d04
+  checksum: 81381bedeba83278f4c9febb0b83e0bd3f42a25897a50b9cb36ef53651d34b3d50f87ebf11211ea57ea575131f85d31e93e496ce46478a00b0f9bf7b26b5917a
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:18.2.0":
+  version: 18.2.0
+  resolution: "@types/react@npm:18.2.0"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: db3d92b423150222a666329f7aa3023e3e942044700557b8a7d161530847e621aec9f56c9e7f71761b06dd164c8a7b17ad52355863efe80963dffa5537e8e5fd
   languageName: node
   linkType: hard
 
@@ -14824,7 +14835,6 @@ __metadata:
     react-dom: 18.2.0
     react-native: 0.72.5
     react-native-web: ~0.19.6
-    swr: ^2.2.4
   languageName: unknown
   linkType: soft
 
@@ -14837,7 +14847,7 @@ __metadata:
     "@react-native/eslint-config": ^0.72.2
     "@release-it/conventional-changelog": ^5.0.0
     "@types/jest": ^28.1.2
-    "@types/react": ~17.0.21
+    "@types/react": 18.2.0
     "@types/react-native": 0.70.0
     ai: ^2.2.15
     commitlint: ^17.0.2
@@ -14852,6 +14862,7 @@ __metadata:
     react-native: 0.72.5
     react-native-builder-bob: ^0.20.0
     release-it: ^15.0.0
+    swr: ^2.2.4
     typescript: ^5.0.2
   peerDependencies:
     react: "*"

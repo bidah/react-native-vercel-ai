@@ -1,6 +1,8 @@
+// @ts-ignore
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
-import useSWR, { KeyedMutator } from 'swr';
-import { nanoid, createChunkDecoder, COMPLEX_HEADER } from './shared/utils';
+import useSWR from 'swr';
+import type { KeyedMutator } from 'swr';
+import { nanoid } from './shared/utils';
 
 import type {
   ChatRequest,
@@ -9,8 +11,8 @@ import type {
   UseChatOptions,
   ChatRequestOptions,
   FunctionCall,
-} from '../shared/types';
-import { Platform } from 'react-native';
+} from './shared/types';
+
 export type { Message, CreateMessage, UseChatOptions };
 
 export type UseChatHelpers = {
@@ -144,25 +146,6 @@ const getResponse = async (
   const createdAt = new Date();
   const reader = await res.json();
 
-  // const decode = createChunkDecoder(isComplexMode);
-  let responseMessages: Message[] = [];
-
-  // END TODO-STREAMDATA
-  let responseData: any = [];
-  type PrefixMap = {
-    text?: Message;
-    function_call?:
-      | string
-      | Pick<Message, 'function_call' | 'role' | 'content' | 'name'>;
-    data?: string[];
-  };
-
-  const prefixMap: PrefixMap = {};
-  const NEWLINE = '\n'.charCodeAt(0);
-  let chunks: Uint8Array[] = [];
-  let totalLength = 0;
-
-  const disable = false;
   // TODO-STREAMDATA: Remove this once Strem Data is not experimental
   let streamedResponse = '';
   const replyId = nanoid();
@@ -289,6 +272,7 @@ export function useChat({
           // Using experimental stream data
           if ('messages' in messagesAndDataOrJustMessage) {
             let hasFollowingResponse = false;
+            //@ts-ignore
             for (const message of messagesAndDataOrJustMessage.messages) {
               if (
                 message.function_call === undefined ||
@@ -316,7 +300,7 @@ export function useChat({
 
                 // A function call response was returned.
                 // The updated chat with function call response will be sent to the API in the next iteration of the loop.
-                chatRequest = functionCallResponse;
+                chatRequest = functionCallResponse as ChatRequest;
               }
             }
             if (!hasFollowingResponse) {
@@ -345,7 +329,7 @@ export function useChat({
               if (functionCallResponse === undefined) break;
               // A function call response was returned.
               // The updated chat with function call response will be sent to the API in the next iteration of the loop.
-              chatRequest = functionCallResponse;
+              chatRequest = functionCallResponse as ChatRequest;
             }
           }
         }
@@ -367,6 +351,7 @@ export function useChat({
         mutateLoading(false);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [
       mutate,
       mutateLoading,

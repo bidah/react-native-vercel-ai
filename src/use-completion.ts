@@ -1,9 +1,7 @@
-import { useCallback, useEffect, useId, useRef, useState } from "react";
-import useSWR from "swr";
+import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import useSWR from 'swr';
 
-import { createChunkDecoder } from "./shared/utils";
-import { UseCompletionOptions, RequestOptions } from "./shared/types";
-import { Platform } from "react-native";
+import type { UseCompletionOptions, RequestOptions } from './shared/types';
 
 export type UseCompletionHelpers = {
   /** The current completion result */
@@ -56,10 +54,10 @@ export type UseCompletionHelpers = {
 };
 
 export function useCompletion({
-  api = "/api/completion",
+  api = '/api/completion',
   id,
-  initialCompletion = "",
-  initialInput = "",
+  initialCompletion = '',
+  initialInput = '',
   credentials,
   headers,
   body,
@@ -77,7 +75,7 @@ export function useCompletion({
   });
 
   const { data: isLoading = false, mutate: mutateLoading } = useSWR<boolean>(
-    [completionId, "loading"],
+    [completionId, 'loading'],
     null
   );
 
@@ -111,10 +109,10 @@ export function useCompletion({
         setAbortController(abortController);
 
         // Empty the completion immediately.
-        mutate("", false);
+        mutate('', false);
 
         const res = await fetch(api, {
-          method: "POST",
+          method: 'POST',
           body: JSON.stringify({
             prompt,
             ...extraMetadataRef.current.body,
@@ -140,7 +138,7 @@ export function useCompletion({
 
         if (!res.ok) {
           throw new Error(
-            (await res.text()) || "Failed to fetch the chat response."
+            (await res.text()) || 'Failed to fetch the chat response.'
           );
         }
 
@@ -159,7 +157,7 @@ export function useCompletion({
         return reader.data.content;
       } catch (err) {
         // Ignore abort errors as they are expected.
-        if ((err as any).name === "AbortError") {
+        if ((err as any).name === 'AbortError') {
           setAbortController(null);
           return null;
         }
@@ -202,7 +200,7 @@ export function useCompletion({
     [mutate]
   );
 
-  const complete = useCallback<UseCompletionHelpers["complete"]>(
+  const complete = useCallback<UseCompletionHelpers['complete']>(
     async (prompt, options) => {
       return triggerRequest(prompt, options);
     },
@@ -211,13 +209,10 @@ export function useCompletion({
 
   const [input, setInput] = useState(initialInput);
 
-  const handleSubmit = useCallback(
-    (e: string) => {
-      if (!input) return;
-      return complete(input);
-    },
-    [input, complete]
-  );
+  const handleSubmit = useCallback(() => {
+    if (!input) return;
+    return complete(input);
+  }, [input, complete]);
 
   const handleInputChange = (e: any) => {
     setInput(e);

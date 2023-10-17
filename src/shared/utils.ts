@@ -1,10 +1,10 @@
 import { customAlphabet } from 'nanoid/non-secure';
-import { JSONValue } from './types';
+import type { JSONValue } from './types';
 
 // 7-character random string
 export const nanoid = customAlphabet(
   '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
-  7,
+  7
 );
 
 // Type overloads
@@ -67,7 +67,7 @@ export const StreamStringPrefixes = {
 
 export const isStreamStringEqualToType = (
   type: keyof typeof StreamStringPrefixes,
-  value: string,
+  value: string
 ): value is StreamString =>
   value.startsWith(`${StreamStringPrefixes[type]}:`) && value.endsWith('\n');
 
@@ -76,22 +76,22 @@ export const isStreamStringEqualToType = (
  */
 export const getStreamString = (
   type: keyof typeof StreamStringPrefixes,
-  value: JSONValue,
+  value: JSONValue
 ): StreamString => `${StreamStringPrefixes[type]}:${JSON.stringify(value)}\n`;
 
 export type StreamString =
   `${(typeof StreamStringPrefixes)[keyof typeof StreamStringPrefixes]}:${string}\n`;
 
 export const getStreamStringTypeAndValue = (
-  line: string,
+  line: string
 ): { type: keyof typeof StreamStringPrefixes; value: string } => {
   // const split = line.split(':', 2)
   const firstSeperatorIndex = line.indexOf(':');
   const prefix = line.slice(0, firstSeperatorIndex);
   const type = Object.keys(StreamStringPrefixes).find(
-    key =>
+    (key) =>
       StreamStringPrefixes[key as keyof typeof StreamStringPrefixes] ===
-      Number(prefix),
+      Number(prefix)
   ) as keyof typeof StreamStringPrefixes;
 
   const val = line.slice(firstSeperatorIndex + 1);

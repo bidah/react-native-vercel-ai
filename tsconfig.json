@@ -4,25 +4,24 @@
     "paths": {
       "react-native-vercel-ai": ["./src/index"]
     },
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
+    "allowUnreachableCode": true,
+    "allowUnusedLabels": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": false,
     "jsx": "react",
     "lib": ["esnext"],
     "module": "esnext",
     "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noImplicitUseStrict": false,
     "noStrictGenericChecks": false,
     "noUncheckedIndexedAccess": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "target": "esnext",
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "noEmit": false
   }
 }

@@ -74,7 +74,7 @@ export type ChatRequest = {
 
 export type FunctionCallHandler = (
   chatMessages: Message[],
-  functionCall: FunctionCall,
+  functionCall: FunctionCall
 ) => Promise<ChatRequest | void>;
 
 export type RequestOptions = {
@@ -88,6 +88,7 @@ export type ChatRequestOptions = {
   function_call?: FunctionCall;
 };
 
+type RequestCredentials = 'omit' | 'same-origin' | 'include';
 export type UseChatOptions = {
   /**
    * The API endpoint that accepts a `{ messages: Message[] }` object and returns
