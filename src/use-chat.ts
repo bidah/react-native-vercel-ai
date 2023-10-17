@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useId, useRef, useState } from "react";
-import useSWR, { KeyedMutator } from "swr";
-import { nanoid, createChunkDecoder, COMPLEX_HEADER } from "./shared/utils";
+import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import useSWR, { KeyedMutator } from 'swr';
+import { nanoid, createChunkDecoder, COMPLEX_HEADER } from './shared/utils';
 
 import type {
   ChatRequest,
@@ -9,8 +9,8 @@ import type {
   UseChatOptions,
   ChatRequestOptions,
   FunctionCall,
-} from "../shared/types";
-import { Platform } from "react-native";
+} from '../shared/types';
+import { Platform } from 'react-native';
 export type { Message, CreateMessage, UseChatOptions };
 
 export type UseChatHelpers = {
@@ -83,10 +83,8 @@ const getResponse = async (
   const previousMessages = messagesRef.current;
   mutate(chatRequest.messages, false);
 
-  console.log("before fetch");
-
   const res = await fetch(api, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify({
       messages: sendExtraMessageFields
         ? chatRequest.messages
@@ -136,7 +134,7 @@ const getResponse = async (
   if (!res.ok) {
     // Restore the previous messages if the request fails.
     mutate(previousMessages, false);
-    throw new Error((await res.text()) || "Failed to fetch the chat response.");
+    throw new Error((await res.text()) || 'Failed to fetch the chat response.');
   }
 
   // if (!res.body) {
@@ -155,24 +153,24 @@ const getResponse = async (
     text?: Message;
     function_call?:
       | string
-      | Pick<Message, "function_call" | "role" | "content" | "name">;
+      | Pick<Message, 'function_call' | 'role' | 'content' | 'name'>;
     data?: string[];
   };
 
   const prefixMap: PrefixMap = {};
-  const NEWLINE = "\n".charCodeAt(0);
+  const NEWLINE = '\n'.charCodeAt(0);
   let chunks: Uint8Array[] = [];
   let totalLength = 0;
 
   const disable = false;
   // TODO-STREAMDATA: Remove this once Strem Data is not experimental
-  let streamedResponse = "";
+  let streamedResponse = '';
   const replyId = nanoid();
   let responseMessage: Message = {
     id: replyId,
     createdAt,
-    content: "",
-    role: "assistant",
+    content: '',
+    role: 'assistant',
   };
 
   responseMessage.content = reader.data.content;
@@ -190,7 +188,7 @@ const getResponse = async (
     const parsedFunctionCall: FunctionCall =
       JSON.parse(streamedResponse).function_call;
 
-    responseMessage["function_call"] = parsedFunctionCall;
+    responseMessage.function_call = parsedFunctionCall;
 
     mutate([...chatRequest.messages, { ...responseMessage }]);
   }
@@ -203,10 +201,10 @@ const getResponse = async (
 };
 
 export function useChat({
-  api = "/api/chat",
+  api = '/api/chat',
   id,
   initialMessages = [],
-  initialInput = "",
+  initialInput = '',
   sendExtraMessageFields,
   experimental_onFunctionCall,
   onResponse,
@@ -227,12 +225,12 @@ export function useChat({
 
   // We store loading state in another hook to sync loading states across hook invocations
   const { data: isLoading = false, mutate: mutateLoading } = useSWR<boolean>(
-    [chatId, "loading"],
+    [chatId, 'loading'],
     null
   );
 
   const { data: streamData, mutate: mutateStreamData } = useSWR<any>(
-    [chatId, "streamData"],
+    [chatId, 'streamData'],
     null
   );
 
@@ -289,12 +287,12 @@ export function useChat({
           );
 
           // Using experimental stream data
-          if ("messages" in messagesAndDataOrJustMessage) {
+          if ('messages' in messagesAndDataOrJustMessage) {
             let hasFollowingResponse = false;
             for (const message of messagesAndDataOrJustMessage.messages) {
               if (
                 message.function_call === undefined ||
-                typeof message.function_call === "string"
+                typeof message.function_call === 'string'
               ) {
                 continue;
               }
@@ -329,7 +327,7 @@ export function useChat({
             // TODO-STREAMDATA: Remove this once Stream Data is not experimental
             if (
               streamedResponseMessage.function_call === undefined ||
-              typeof streamedResponseMessage.function_call === "string"
+              typeof streamedResponseMessage.function_call === 'string'
             ) {
               break;
             }
@@ -355,7 +353,7 @@ export function useChat({
         abortControllerRef.current = null;
       } catch (err) {
         // Ignore abort errors as they are expected.
-        if ((err as any).name === "AbortError") {
+        if ((err as any).name === 'AbortError') {
           abortControllerRef.current = null;
           return null;
         }
@@ -414,7 +412,7 @@ export function useChat({
 
       // Remove last assistant message and retry last user message.
       const lastMessage = messagesRef.current[messagesRef.current.length - 1];
-      if (lastMessage.role === "assistant") {
+      if (lastMessage.role === 'assistant') {
         const chatRequest: ChatRequest = {
           messages: messagesRef.current.slice(0, -1),
           options,
@@ -473,12 +471,12 @@ export function useChat({
       append(
         {
           content: input,
-          role: "user",
+          role: 'user',
           createdAt: new Date(),
         },
         { options, functions, function_call }
       );
-      setInput("");
+      setInput('');
     },
     [input, append]
   );

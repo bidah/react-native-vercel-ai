@@ -32,8 +32,6 @@ const Completion = () => {
           value={input}
           placeholder="Say something..."
           onChangeText={(e) => {
-            console.log('🚀 ~ file: Completion.tsx:43 ~ Completion ~ e:', e);
-
             handleInputChange(
               Platform.OS === 'web' ? { target: { value: e } } : e
             );
