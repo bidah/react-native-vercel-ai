@@ -1,1 +1,1 @@
-export * from 'ai/react/dist';
+export * from 'ai/react';
