@@ -62,7 +62,7 @@ const { messages, input, handleInputChange, handleSubmit, data, isLoading } =
 
 Setup your responses depending of weather the request is coming from native mobile or the web.
 
-Follow normal AI library flows for web and for native mobile skip the `OpenAIStream` part and return a response that has the latest message. eg: `response.choices[0].message `
+Follow normal AI library flows for web and for native mobile skip the `OpenAIStream` part and return a response that has the latest message.
 
 ```js
 // /api/chat
