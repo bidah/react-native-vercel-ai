@@ -1,6 +1,6 @@
 # react-native-vercel-ai
 
-Run [Vercel AI package](npmjs.com/package/ai) on React Native, [Expo](http://www.expo.dev), Web and Universal apps.
+Run [Vercel AI package](https://www.npmjs.com/package/ai) on React Native, [Expo](https://expo.dev), Web and Universal apps.
 
 Currently React Native fetch API does not support streaming which is used as a default on Vercel AI. This package enables you to use AI library on React Native but the best usage is when used on Expo universal native apps.
 
