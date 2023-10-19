@@ -62,7 +62,15 @@ const { messages, input, handleInputChange, handleSubmit, data, isLoading } =
 
 Setup your responses depending of weather the request is coming from native mobile or the web.
 
-Follow normal AI library flows for web and for native mobile skip the `OpenAIStream` part and return a response that has the latest message.
+**For web:**
+
+- Follow normal AI library flows for web
+
+**For React Native:**
+
+- skip the `OpenAIStream` part of the web flow. We don't want the stream.
+- Set your provider stream option to be `false`.
+- return a response that has the latest message.
 
 ```js
 // /api/chat
@@ -106,6 +114,7 @@ export async function POST(req: Request, res: Response) {
     // Ask OpenAI for a streaming chat completion given the prompt
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
+      // Set your provider stream option to be `false` for native
       stream: false,
       messages: [
         {
