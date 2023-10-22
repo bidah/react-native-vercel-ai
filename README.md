@@ -111,7 +111,7 @@ export async function POST(req: Request, res: Response) {
     // Respond with the stream
     return new StreamingTextResponse(stream);
   } else {
-    // Ask OpenAI for a streaming chat completion given the prompt
+    // Ask OpenAI for a chat completion without streaming given the prompt
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       // Set your provider stream option to be `false` for native
