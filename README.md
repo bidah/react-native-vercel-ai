@@ -14,9 +14,16 @@ npm install react-native-vercel-ai
 
 ## Usage
 
-Two steps
+### 1 Metro step:
 
-### 1. On React Native app
+Add this line to your `metro.config.js` file in order to enable [Package exports](https://reactnative.dev/blog/2023/06/21/package-exports-support). This way we will be able to use `ai/react` subfolder.
+
+```js
+config.resolver.unstable_enablePackageExports = true;
+```
+
+
+### 2. On React Native app
 
 On your React Native app import `useChat` or `useCompletion` from `react-native-vercel-ai`. Same API as Vercel AI library.
 
@@ -56,7 +63,7 @@ const { messages, input, handleInputChange, handleSubmit, data, isLoading } =
 </View>;
 ```
 
-### 2. On your API endpoint
+### 3. On your API endpoint
 
 **This example is using a Next.js API but you could use another type of API setup**
 
