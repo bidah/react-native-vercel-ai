@@ -14,7 +14,7 @@ npm install react-native-vercel-ai
 
 ## Usage
 
-### 1 Metro step:
+### 1. Metro setup of package export support
 
 Add this line to your `metro.config.js` file in order to enable [Package exports](https://reactnative.dev/blog/2023/06/21/package-exports-support). This way we will be able to use `ai/react` subfolder.
 
