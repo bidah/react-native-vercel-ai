@@ -28,7 +28,7 @@ config.resolver.unstable_enablePackageExports = true;
 On your React Native app import `useChat` or `useCompletion` from `react-native-vercel-ai`. Same API as Vercel AI library.
 
 ```js
-import { useChat } from 'react-native-vecel-ai';
+import { useChat } from 'react-native-vercel-ai';
 
 const { messages, input, handleInputChange, handleSubmit, data, isLoading } =
   useChat({
