@@ -1,6 +1,6 @@
 {
   "name": "react-native-vercel-ai",
-  "version": "0.1.0",
+  "version": "0.0.0-local.5",
   "description": "run vercel ai package on react native, expo, web and universal apps.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -73,8 +73,7 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*",
-    "swr": "*"
+    "react-native": "*"
   },
   "workspaces": [
     "example"
@@ -157,7 +156,7 @@
     ]
   },
   "dependencies": {
-    "ai": "^2.2.15",
+    "ai": "^2.2.22",
     "nanoid": "^5.0.2",
     "swr": "^2.2.4"
   }

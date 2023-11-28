@@ -5,7 +5,7 @@ import { useChat } from 'react-native-vercel-ai';
 const Chat = () => {
   const { messages, input, handleInputChange, handleSubmit, isLoading } =
     useChat({
-      api: 'http://localhost:3001/api/chat',
+      api: 'http://localhost:3000/api/chat',
     });
   return (
     <View style={{ margin: 10 }}>
@@ -49,7 +49,7 @@ const Chat = () => {
           value={input}
           placeholder="Say something..."
           onChangeText={(e) => {
-            handleInputChange(
+            return handleInputChange(
               Platform.OS === 'web' ? { target: { value: e } } : e
             );
           }}

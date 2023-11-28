@@ -4499,9 +4499,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ai@npm:^2.2.15":
-  version: 2.2.15
-  resolution: "ai@npm:2.2.15"
+"ai@npm:^2.2.22":
+  version: 2.2.22
+  resolution: "ai@npm:2.2.22"
   dependencies:
     eventsource-parser: 1.0.0
     nanoid: 3.3.6
@@ -4524,7 +4524,7 @@ __metadata:
       optional: true
     vue:
       optional: true
-  checksum: 83911a8804b9566c200d8446890f0370ae4bb2fedc4b7812d21bc1433b1ba2bf76ee04af593b567ead189e17c65e3e09ce6a4025e8e0c8e6b94fb543371c7ba3
+  checksum: e5394114061b2591e2ca12ced19f6c79e8ebe968a3c7f9f9639fe0b4c8cf33a5a6fab144523c86b7d1e71c96813a0ba17f04eb6861e2957ee9b05702267b8cd1
   languageName: node
   linkType: hard
 
@@ -14827,6 +14827,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.0
     "@expo/webpack-config": ^18.0.1
+    ai: ^2.2.22
     babel-loader: ^8.1.0
     babel-plugin-module-resolver: ^5.0.0
     expo: ~49.0.13
@@ -14835,6 +14836,7 @@ __metadata:
     react-dom: 18.2.0
     react-native: 0.72.5
     react-native-web: ~0.19.6
+    swr: ^2.2.4
   languageName: unknown
   linkType: soft
 
@@ -14849,7 +14851,7 @@ __metadata:
     "@types/jest": ^28.1.2
     "@types/react": 18.2.0
     "@types/react-native": 0.70.0
-    ai: ^2.2.15
+    ai: ^2.2.22
     commitlint: ^17.0.2
     del-cli: ^5.0.0
     eslint: ^8.4.1
@@ -14867,7 +14869,6 @@ __metadata:
   peerDependencies:
     react: "*"
     react-native: "*"
-    swr: "*"
   languageName: unknown
   linkType: soft
 
