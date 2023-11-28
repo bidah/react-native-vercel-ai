@@ -90,7 +90,7 @@ export const runtime = 'edge';
 
 export async function POST(req: Request, res: Response) {
   // Extract the `prompt` from the body of the request
-  const { prompt } = await req.json();
+  const { messages } = await req.json();
   const userAgentData = userAgent(req);
   const isNativeMobile = userAgentData.ua?.includes('Expo');
 
@@ -99,29 +99,19 @@ export async function POST(req: Request, res: Response) {
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       stream: true,
-      messages: [
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
+      messages,
     });
     // Convert the response into a friendly text-stream
     const stream = OpenAIStream(response);
     // Respond with the stream
     return new StreamingTextResponse(stream);
   } else {
-    // Ask OpenAI for a chat completion without streaming given the prompt
+    // Ask OpenAI for a streaming chat completion given the prompt
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       // Set your provider stream option to be `false` for native
       stream: false,
-      messages: [
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
+      messages: messages,
     });
 
     return NextResponse.json({ data: response.choices[0].message });
