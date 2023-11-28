@@ -1,10 +1,10 @@
 {
   "name": "react-native-vercel-ai",
-  "version": "0.0.0-local.9",
+  "version": "0.0.0-local.11",
   "description": "run vercel ai package on react native, expo, web and universal apps.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
-  "types": "lib/typescript/src/index.d.ts",
+  "types": "lib/typescript/src/index.native.d.ts",
   "react-native": "src/index",
   "source": "src/index",
   "files": [

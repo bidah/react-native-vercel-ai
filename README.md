@@ -12,6 +12,12 @@ On mobile you get back responses without streaming with the same API of `useChat
 npm install react-native-vercel-ai
 ```
 
+## Peer dependencies
+
+```sh
+npm install swr ai
+```
+
 ## Usage
 
 Two steps
