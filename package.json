@@ -73,7 +73,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "ai": "*"
   },
   "workspaces": [
     "example"
