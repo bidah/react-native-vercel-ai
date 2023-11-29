@@ -4660,35 +4660,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ai@npm:*":
-  version: 2.2.26
-  resolution: "ai@npm:2.2.26"
-  dependencies:
-    eventsource-parser: 1.0.0
-    nanoid: 3.3.6
-    solid-swr-store: 0.10.7
-    sswr: 2.0.0
-    swr: 2.2.0
-    swr-store: 0.10.6
-    swrv: 1.0.4
-  peerDependencies:
-    react: ^18.2.0
-    solid-js: ^1.7.7
-    svelte: ^3.0.0 || ^4.0.0
-    vue: ^3.3.4
-  peerDependenciesMeta:
-    react:
-      optional: true
-    solid-js:
-      optional: true
-    svelte:
-      optional: true
-    vue:
-      optional: true
-  checksum: f83a2cf2c421db69f0adda59242c81bd3934349d6767492f16b4b0150b6544d3643bfb2d7f198102f8535b31ca1e34cebcf13724be0b58fa116feca7b338ab08
-  languageName: node
-  linkType: hard
-
 "ai@npm:^2.2.22":
   version: 2.2.22
   resolution: "ai@npm:2.2.22"
@@ -4715,6 +4686,35 @@ __metadata:
     vue:
       optional: true
   checksum: e5394114061b2591e2ca12ced19f6c79e8ebe968a3c7f9f9639fe0b4c8cf33a5a6fab144523c86b7d1e71c96813a0ba17f04eb6861e2957ee9b05702267b8cd1
+  languageName: node
+  linkType: hard
+
+"ai@npm:^2.2.26":
+  version: 2.2.26
+  resolution: "ai@npm:2.2.26"
+  dependencies:
+    eventsource-parser: 1.0.0
+    nanoid: 3.3.6
+    solid-swr-store: 0.10.7
+    sswr: 2.0.0
+    swr: 2.2.0
+    swr-store: 0.10.6
+    swrv: 1.0.4
+  peerDependencies:
+    react: ^18.2.0
+    solid-js: ^1.7.7
+    svelte: ^3.0.0 || ^4.0.0
+    vue: ^3.3.4
+  peerDependenciesMeta:
+    react:
+      optional: true
+    solid-js:
+      optional: true
+    svelte:
+      optional: true
+    vue:
+      optional: true
+  checksum: f83a2cf2c421db69f0adda59242c81bd3934349d6767492f16b4b0150b6544d3643bfb2d7f198102f8535b31ca1e34cebcf13724be0b58fa116feca7b338ab08
   languageName: node
   linkType: hard
 
@@ -15280,7 +15280,7 @@ __metadata:
     "@types/jest": ^28.1.2
     "@types/react": 18.2.0
     "@types/react-native": 0.70.0
-    ai: "*"
+    ai: ^2.2.26
     commitlint: ^17.0.2
     del-cli: ^5.0.0
     eslint: ^8.4.1
