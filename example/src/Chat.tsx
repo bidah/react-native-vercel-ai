@@ -54,7 +54,7 @@ const Chat = () => {
             );
           }}
         />
-        <Button onPress={handleSubmit} title="Send" />
+        <Button onPress={handleSubmit} title="Send rnvai" />
       </View>
       <View
         style={{ height: 1, backgroundColor: 'gray', marginVertical: 25 }}
