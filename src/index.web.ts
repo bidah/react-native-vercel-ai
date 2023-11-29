@@ -1,1 +1,1 @@
-export * from 'ai/react';
+export * from '../node_modules/ai/react/dist/index';

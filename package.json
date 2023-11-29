@@ -73,8 +73,7 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*",
-    "ai": "*"
+    "react-native": "*"
   },
   "workspaces": [
     "example"
@@ -157,7 +156,7 @@
     ]
   },
   "dependencies": {
-    "ai": "^2.2.22",
+    "ai": "*",
     "nanoid": "^5.0.2",
     "swr": "^2.2.4"
   }

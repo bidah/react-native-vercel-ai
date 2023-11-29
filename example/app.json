@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "com.bidah.reactnativevercelai",
     "name": "example",
     "slug": "example",
     "version": "1.0.0",
@@ -24,6 +25,7 @@
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
-    }
+    },
+    "plugins": ["expo-router"]
   }
 }
