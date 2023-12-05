@@ -66,6 +66,7 @@ const Chat = () => {
           style={{
             backgroundColor: 'skyblue',
             borderRadius: 5,
+            width: '20%',
             color: 'black',
             alignItems: 'center',
             justifyContent: 'center',
