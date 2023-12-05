@@ -1,5 +1,12 @@
 import React from 'react';
-import { Platform, Button, Text, TextInput, View } from 'react-native';
+import {
+  Platform,
+  Button,
+  Text,
+  TextInput,
+  View,
+  Pressable,
+} from 'react-native';
 import { useChat } from 'react-native-vercel-ai';
 
 const Chat = () => {
@@ -54,7 +61,19 @@ const Chat = () => {
             );
           }}
         />
-        <Button onPress={handleSubmit} title="Send rnvai" />
+        <Pressable
+          onPress={handleSubmit}
+          style={{
+            backgroundColor: 'skyblue',
+            borderRadius: 5,
+            color: 'black',
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingHorizontal: 10,
+          }}
+        >
+          <Text style={{ color: 'white', fontWeight: '400' }}>Send</Text>
+        </Pressable>
       </View>
       <View
         style={{ height: 1, backgroundColor: 'gray', marginVertical: 25 }}
