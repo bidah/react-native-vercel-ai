@@ -6,16 +6,12 @@ Currently React Native fetch API does not support streaming which is used as a d
 
 On mobile you get back responses without streaming with the same API of `useChat` and `useCompletion` and on web it will fallback to `ai/react`
 
+> ▶️ Play around using the example app which includes a functioning app that includes a `next-app` app inside of it with a `/chat` route endpoint for you test the package right away.
+
 ## Installation
 
 ```sh
 npm install react-native-vercel-ai
-```
-
-## Peer dependencies
-
-```sh
-npm install swr ai
 ```
 
 ## Usage
