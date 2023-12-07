@@ -1,6 +1,6 @@
 # react-native-vercel-ai
 
-Run [Vercel AI package](npmjs.com/package/ai) on React Native, [Expo](http://www.expo.dev), Web and Universal apps.
+Run [Vercel AI package](https://www.npmjs.com/package/ai) on React Native, [Expo](https://expo.dev), Web and Universal apps.
 
 Currently React Native fetch API does not support streaming which is used as a default on Vercel AI. This package enables you to use AI library on React Native but the best usage is when used on Expo universal native apps.
 
@@ -16,14 +16,21 @@ npm install react-native-vercel-ai
 
 ## Usage
 
-Two steps
+### 1. Metro setup of package export support
 
-### 1. On React Native app
+Add this line to your `metro.config.js` file in order to enable [Package exports](https://reactnative.dev/blog/2023/06/21/package-exports-support). This way we will be able to use `ai/react` subfolder.
+
+```js
+config.resolver.unstable_enablePackageExports = true;
+```
+
+
+### 2. On React Native app
 
 On your React Native app import `useChat` or `useCompletion` from `react-native-vercel-ai`. Same API as Vercel AI library.
 
 ```js
-import { useChat } from 'react-native-vecel-ai';
+import { useChat } from 'react-native-vercel-ai';
 
 const { messages, input, handleInputChange, handleSubmit, data, isLoading } =
   useChat({
@@ -58,7 +65,7 @@ const { messages, input, handleInputChange, handleSubmit, data, isLoading } =
 </View>;
 ```
 
-### 2. On your API endpoint
+### 3. On your API endpoint
 
 **This example is using a Next.js API but you could use another type of API setup**
 
