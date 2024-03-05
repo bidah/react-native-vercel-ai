@@ -1,6 +1,6 @@
 # react-native-vercel-ai
 
-Run [Vercel AI package](npmjs.com/package/ai) on React Native, [Expo](http://www.expo.dev), Web and Universal apps.
+Run [Vercel AI package](https://npmjs.com/package/ai) on React Native, [Expo](http://expo.dev), Web, and Universal apps.
 
 Currently React Native fetch API does not support streaming which is used as a default on Vercel AI. This package enables you to use AI library on React Native but the best usage is when used on Expo universal native apps.
 
@@ -16,46 +16,46 @@ npm install react-native-vercel-ai
 
 ## Usage
 
-Two steps
-
 ### 1. On React Native app
 
 On your React Native app import `useChat` or `useCompletion` from `react-native-vercel-ai`. Same API as Vercel AI library.
 
-```js
-import { useChat } from 'react-native-vecel-ai';
+```jsx
+import { useChat } from 'react-native-vercel-ai';
+import { Button, Platform, TextInput, Text, View } from 'react-native';
 
-const { messages, input, handleInputChange, handleSubmit, data, isLoading } =
-  useChat({
-    api: 'http://localhost:3001/api/chat',
-  });
+export default function Index() {
+  const { messages, input, handleInputChange, handleSubmit, data, isLoading } =
+    useChat({
+      api: 'http://localhost:3001/api/chat',
+    });
 
-<View>
-  {messages.length > 0
-    ? messages.map((m) => (
-        <Text key={m.id}>
-          {m.role === 'user' ? '🧔 User: ' : '🤖 AI: '}
-          {m.content}
-        </Text>
-      ))
-    : null}
-
-  {isLoading && Platform.OS !== 'web' && (
+  return (
     <View>
-      <Text>Loading...</Text>
+      {messages.length > 0 &&
+        messages.map((m) => (
+          <Text key={m.id}>
+            {m.role === 'user' ? '🧔 User: ' : '🤖 AI: '}
+            {m.content}
+          </Text>
+        ))}
+
+      {isLoading && Platform.OS !== 'web' && <Text>Loading...</Text>}
+
+      <TextInput
+        value={input}
+        placeholder="Say something..."
+        onChangeText={(e) => {
+          handleInputChange(
+            Platform.OS === 'web' ? { target: { value: e } } : e
+          );
+        }}
+      />
+
+      <Button onPress={handleSubmit} title="Send" />
     </View>
-  )}
-  <View>
-    <TextInput
-      value={input}
-      placeholder="Say something..."
-      onChangeText={(e) => {
-        handleInputChange(Platform.OS === 'web' ? { target: { value: e } } : e);
-      }}
-    />
-    <Button onPress={handleSubmit} title="Send" />
-  </View>
-</View>;
+  );
+}
 ```
 
 ### 2. On your API endpoint
@@ -74,8 +74,8 @@ Setup your responses depending of weather the request is coming from native mobi
 - Set your provider stream option to be `false`.
 - return a response that has the latest message.
 
-```js
-// /api/chat
+```jsx
+// http://localhost:3001/api/chat
 
 // ./app/api/chat/route.ts
 import OpenAI from 'openai';

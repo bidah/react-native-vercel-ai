@@ -1,6 +1,5 @@
 import React from 'react';
-import { Platform } from 'react-native';
-import { Button, Text, TextInput, View } from 'react-native';
+import { Button, Platform, Text, TextInput, View } from 'react-native';
 import { useCompletion } from 'react-native-vercel-ai';
 
 const Completion = () => {

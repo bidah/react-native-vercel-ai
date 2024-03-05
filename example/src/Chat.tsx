@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Platform,
-  Button,
-  Text,
-  TextInput,
-  View,
-  Pressable,
-} from 'react-native';
+import { Platform, Pressable, Text, TextInput, View } from 'react-native';
 import { useChat } from 'react-native-vercel-ai';
 
 const Chat = () => {
