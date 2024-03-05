@@ -1,19 +1,18 @@
-// @ts-ignore
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
-import useSWR from 'swr';
 import type { KeyedMutator } from 'swr';
+import useSWR from 'swr';
 import { nanoid } from './shared/utils';
 
 import type {
   ChatRequest,
+  ChatRequestOptions,
   CreateMessage,
+  FunctionCall,
   Message,
   UseChatOptions,
-  ChatRequestOptions,
-  FunctionCall,
 } from './shared/types';
 
-export type { Message, CreateMessage, UseChatOptions };
+export type { CreateMessage, Message, UseChatOptions };
 
 export type UseChatHelpers = {
   /** Current messages in the chat */
@@ -146,7 +145,7 @@ const getResponse = async (
   const createdAt = new Date();
   const reader = await res.json();
 
-  // TODO-STREAMDATA: Remove this once Strem Data is not experimental
+  // TODO-STREAMDATA: Remove this once StreamData is not experimental
   let streamedResponse = '';
   const replyId = nanoid();
   let responseMessage: Message = {

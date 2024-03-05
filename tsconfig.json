@@ -23,5 +23,6 @@
     "target": "esnext",
     "verbatimModuleSyntax": true,
     "noEmit": false
-  }
+  },
+  "exclude": ["node_modules", "example"]
 }

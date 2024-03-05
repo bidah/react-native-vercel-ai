@@ -6,13 +6,13 @@ import { Message, useChat } from 'ai/react';
 export default function Chat() {
   const functionCallHandler: FunctionCallHandler = async (
     chatMessages,
-    functionCall,
+    functionCall
   ) => {
     if (functionCall.name === 'eval_code_in_browser') {
       if (functionCall.arguments) {
         // Parsing here does not always work since it seems that some characters in generated code aren't escaped properly.
         const parsedFunctionCallArguments: { code: string } = JSON.parse(
-          functionCall.arguments,
+          functionCall.arguments
         );
         // WARNING: Do NOT do this in real-world applications!
         eval(parsedFunctionCallArguments.code);

@@ -30,6 +30,7 @@
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "format": "prettier --write \"**/*.{js,ts,tsx,jsx,json,md}\"",
     "clean": "del-cli lib",
     "prepare": "bob build",
     "release": "release-it",
@@ -49,6 +50,11 @@
   "homepage": "https://github.com/bidah/react-native-vercel-ai#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "ai": "^2.2.26",
+    "nanoid": "^5.0.2",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
@@ -132,7 +138,8 @@
   },
   "eslintIgnore": [
     "node_modules/",
-    "lib/"
+    "lib/",
+    "example/"
   ],
   "prettier": {
     "quoteProps": "consistent",
@@ -141,6 +148,11 @@
     "trailingComma": "es5",
     "useTabs": false
   },
+  "prettierIgnore": [
+    "node_modules/",
+    "lib/",
+    "example/"
+  ],
   "react-native-builder-bob": {
     "source": "src",
     "output": "lib",
@@ -154,10 +166,5 @@
         }
       ]
     ]
-  },
-  "dependencies": {
-    "ai": "^2.2.26",
-    "nanoid": "^5.0.2",
-    "swr": "^2.2.4"
   }
 }

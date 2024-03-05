@@ -20,7 +20,7 @@ export const nanoid = customAlphabet(
 //   value: string
 // }[]
 
-function createChunkDecoder(complex?: boolean) {
+export function createChunkDecoder(complex?: boolean) {
   const decoder = new TextDecoder();
 
   if (!complex) {
@@ -35,8 +35,6 @@ function createChunkDecoder(complex?: boolean) {
     return decoded.map(getStreamStringTypeAndValue).filter(Boolean) as any;
   };
 }
-
-export { createChunkDecoder };
 
 /**
  * The map of prefixes for data in the stream
@@ -86,15 +84,15 @@ export const getStreamStringTypeAndValue = (
   line: string
 ): { type: keyof typeof StreamStringPrefixes; value: string } => {
   // const split = line.split(':', 2)
-  const firstSeperatorIndex = line.indexOf(':');
-  const prefix = line.slice(0, firstSeperatorIndex);
+  const firstSeparatorIndex = line.indexOf(':');
+  const prefix = line.slice(0, firstSeparatorIndex);
   const type = Object.keys(StreamStringPrefixes).find(
     (key) =>
       StreamStringPrefixes[key as keyof typeof StreamStringPrefixes] ===
       Number(prefix)
   ) as keyof typeof StreamStringPrefixes;
 
-  const val = line.slice(firstSeperatorIndex + 1);
+  const val = line.slice(firstSeparatorIndex + 1);
 
   let parsedVal = val;
 
