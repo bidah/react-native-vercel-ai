@@ -38,6 +38,8 @@ export type UseCompletionHelpers = {
     e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
+      // NOTE: React Native TextInput has a different event type
+      | string
   ) => void;
   /**
    * Form submission handler to automatically reset input and append a user message
