@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import useSWR from 'swr';
-
-import type { UseCompletionOptions, RequestOptions } from './shared/types';
+import type { RequestOptions, UseCompletionOptions } from './shared/types';
 
 export type UseCompletionHelpers = {
   /** The current completion result */

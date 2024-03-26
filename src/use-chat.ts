@@ -1,19 +1,17 @@
-// @ts-ignore
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
-import useSWR from 'swr';
 import type { KeyedMutator } from 'swr';
-import { nanoid } from './shared/utils';
-
+import useSWR from 'swr';
 import type {
   ChatRequest,
+  ChatRequestOptions,
   CreateMessage,
+  FunctionCall,
   Message,
   UseChatOptions,
-  ChatRequestOptions,
-  FunctionCall,
 } from './shared/types';
+import { nanoid } from './shared/utils';
 
-export type { Message, CreateMessage, UseChatOptions };
+export type { CreateMessage, Message, UseChatOptions };
 
 export type UseChatHelpers = {
   /** Current messages in the chat */

@@ -89,6 +89,7 @@ export type ChatRequestOptions = {
 };
 
 type RequestCredentials = 'omit' | 'same-origin' | 'include';
+
 export type UseChatOptions = {
   /**
    * The API endpoint that accepts a `{ messages: Message[] }` object and returns
