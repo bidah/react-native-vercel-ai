@@ -146,7 +146,7 @@ const getResponse = async (
   const createdAt = new Date();
   const reader = await res.json();
 
-  // TODO-STREAMDATA: Remove this once Strem Data is not experimental
+  // TODO-STREAMDATA: Remove this once Stream Data is not experimental
   let streamedResponse = '';
   const replyId = nanoid();
   let responseMessage: Message = {
