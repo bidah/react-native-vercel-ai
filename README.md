@@ -24,7 +24,6 @@ Add this line to your `metro.config.js` file in order to enable [Package exports
 config.resolver.unstable_enablePackageExports = true;
 ```
 
-
 ### 2. On React Native app
 
 On your React Native app import `useChat` or `useCompletion` from `react-native-vercel-ai`. Same API as Vercel AI library.

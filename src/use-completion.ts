@@ -143,7 +143,7 @@ export function useCompletion({
         }
 
         // if (!res.body) {
-        //   throw new Error("The response body is empty.");
+        //   throw new Error('The response body is empty.');
         // }
 
         const reader = await res.json();

@@ -140,7 +140,7 @@ const getResponse = async (
   }
 
   // if (!res.body) {
-  //   throw new Error("The response body is empty.");
+  //   throw new Error('The response body is empty.');
   // }
 
   const createdAt = new Date();

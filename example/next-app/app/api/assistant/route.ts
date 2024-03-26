@@ -11,11 +11,11 @@ const openai = new OpenAI({
 export const runtime = 'edge';
 
 const homeTemperatures = {
-  bedroom: 20,
+  'bedroom': 20,
   'home office': 21,
   'living room': 21,
-  kitchen: 22,
-  bathroom: 23,
+  'kitchen': 22,
+  'bathroom': 23,
 };
 
 export async function POST(req: Request) {
@@ -50,7 +50,7 @@ export async function POST(req: Request) {
         // Poll for status change
         while (run.status === 'queued' || run.status === 'in_progress') {
           // delay for 500ms:
-          await new Promise(resolve => setTimeout(resolve, 500));
+          await new Promise((resolve) => setTimeout(resolve, 500));
 
           run = await openai.beta.threads.runs.retrieve(threadId!, run.id);
         }
@@ -69,7 +69,7 @@ export async function POST(req: Request) {
           if (run.required_action?.type === 'submit_tool_outputs') {
             const tool_outputs =
               run.required_action.submit_tool_outputs.tool_calls.map(
-                toolCall => {
+                (toolCall) => {
                   const parameters = JSON.parse(toolCall.function.arguments);
 
                   switch (toolCall.function.name) {
@@ -98,16 +98,16 @@ export async function POST(req: Request) {
 
                     default:
                       throw new Error(
-                        `Unknown tool call function: ${toolCall.function.name}`,
+                        `Unknown tool call function: ${toolCall.function.name}`
                       );
                   }
-                },
+                }
               );
 
             run = await openai.beta.threads.runs.submitToolOutputs(
               threadId!,
               run.id,
-              { tool_outputs },
+              { tool_outputs }
             );
 
             await waitForRun(run);
@@ -131,10 +131,10 @@ export async function POST(req: Request) {
           id: message.id,
           role: 'assistant',
           content: message.content.filter(
-            content => content.type === 'text',
+            (content) => content.type === 'text'
           ) as Array<MessageContentText>,
         });
       }
-    },
+    }
   );
 }

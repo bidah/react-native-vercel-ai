@@ -29,11 +29,12 @@
     "example": "yarn workspace react-native-vercel-ai-example",
     "test": "jest",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "lint": "eslint \"**/*.{js,ts,jsx,tsx}\"",
     "clean": "del-cli lib",
     "prepare": "bob build",
     "release": "release-it",
-    "clean:node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
+    "clean:node-modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +",
+    "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json,md,mdx}\""
   },
   "keywords": [
     "react-native",
@@ -49,6 +50,11 @@
   "homepage": "https://github.com/bidah/react-native-vercel-ai#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "ai": "^2.2.26",
+    "nanoid": "^5.0.2",
+    "swr": "^2.2.4"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
@@ -154,10 +160,5 @@
         }
       ]
     ]
-  },
-  "dependencies": {
-    "ai": "^2.2.26",
-    "nanoid": "^5.0.2",
-    "swr": "^2.2.4"
   }
 }

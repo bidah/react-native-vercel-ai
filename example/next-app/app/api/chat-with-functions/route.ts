@@ -62,7 +62,7 @@ export async function POST(req: Request) {
   const stream = OpenAIStream(response, {
     experimental_onFunctionCall: async (
       { name, arguments: args },
-      createFunctionCallMessages,
+      createFunctionCallMessages
     ) => {
       if (name === 'get_current_weather') {
         // Call a weather API here
