@@ -13,10 +13,10 @@ describe('utils', () => {
 
     const enqueuedChunks = [];
     enqueuedChunks.push(
-      encoder.encode(getStreamString('text', normalDecode(chunk1))),
+      encoder.encode(getStreamString('text', normalDecode(chunk1)))
     );
     enqueuedChunks.push(
-      encoder.encode(getStreamString('text', normalDecode(chunk2))),
+      encoder.encode(getStreamString('text', normalDecode(chunk2)))
     );
 
     let fullDecodedString = '';

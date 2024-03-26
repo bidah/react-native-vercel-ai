@@ -1,19 +1,17 @@
-// @ts-ignore
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
-import useSWR from 'swr';
 import type { KeyedMutator } from 'swr';
-import { nanoid } from './shared/utils';
-
+import useSWR from 'swr';
 import type {
   ChatRequest,
+  ChatRequestOptions,
   CreateMessage,
+  FunctionCall,
   Message,
   UseChatOptions,
-  ChatRequestOptions,
-  FunctionCall,
 } from './shared/types';
+import { nanoid } from './shared/utils';
 
-export type { Message, CreateMessage, UseChatOptions };
+export type { CreateMessage, Message, UseChatOptions };
 
 export type UseChatHelpers = {
   /** Current messages in the chat */
@@ -57,6 +55,8 @@ export type UseChatHelpers = {
     e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
+      // NOTE: React Native TextInput has a different event type
+      | string
   ) => void;
   /** Form submission handler to automatically reset input and append a user message  */
   handleSubmit: (e: any, chatRequestOptions?: ChatRequestOptions) => void;
@@ -140,13 +140,13 @@ const getResponse = async (
   }
 
   // if (!res.body) {
-  //   throw new Error("The response body is empty.");
+  //   throw new Error('The response body is empty.');
   // }
 
   const createdAt = new Date();
   const reader = await res.json();
 
-  // TODO-STREAMDATA: Remove this once Strem Data is not experimental
+  // TODO-STREAMDATA: Remove this once Stream Data is not experimental
   let streamedResponse = '';
   const replyId = nanoid();
   let responseMessage: Message = {
