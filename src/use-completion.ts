@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import useSWR from 'swr';
-
-import type { UseCompletionOptions, RequestOptions } from './shared/types';
+import type { RequestOptions, UseCompletionOptions } from './shared/types';
 
 export type UseCompletionHelpers = {
   /** The current completion result */
@@ -145,7 +144,7 @@ export function useCompletion({
         }
 
         // if (!res.body) {
-        //   throw new Error("The response body is empty.");
+        //   throw new Error('The response body is empty.');
         // }
 
         const reader = await res.json();

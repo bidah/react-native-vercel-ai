@@ -2,9 +2,9 @@ import { Message } from 'ai';
 import { ChatCompletionMessageParam } from 'openai/resources/chat';
 
 export function asOpenAIMessages(
-  messages: Message[],
+  messages: Message[]
 ): ChatCompletionMessageParam[] {
-  return messages.map(message => {
+  return messages.map((message) => {
     switch (message.role) {
       case 'system':
       case 'user':
@@ -23,7 +23,7 @@ export function asOpenAIMessages(
             function_call.name === undefined)
         ) {
           throw new Error(
-            'Invalid function call in message. Expected a function call object',
+            'Invalid function call in message. Expected a function call object'
           );
         }
 

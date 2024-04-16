@@ -9,7 +9,7 @@ export default function Chat() {
   return (
     <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
       {messages.length > 0
-        ? messages.map(m => (
+        ? messages.map((m) => (
             <div key={m.id} className="whitespace-pre-wrap">
               {m.role === 'user' ? 'User: ' : 'AI: '}
               {m.content}
@@ -18,7 +18,7 @@ export default function Chat() {
         : null}
 
       <form
-        onSubmit={e => {
+        onSubmit={(e) => {
           handleSubmit(e, {
             data: {
               imageUrl:
